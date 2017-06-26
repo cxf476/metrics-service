@@ -5,7 +5,6 @@ import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.net.InetSocketAddress;
 import java.net.Socket;
-import java.net.SocketAddress;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -28,7 +27,7 @@ public class SocketMetrics implements Metrics {
     this.port = port;
   }
 
-  public void add(String metricPath, String metricsValue, long seconds) throws IOException {
+  public boolean add(String metricPath, String metricsValue, long seconds) {
     try (Socket socket = new Socket()){
       socket.connect(new InetSocketAddress(host, port), TIMEOUT);
       OutputStream output = socket.getOutputStream();
@@ -37,6 +36,10 @@ public class SocketMetrics implements Metrics {
       writer.println(data);
       writer.flush();
       LOG.info(data);
+      return true;
+    } catch (IOException e) {
+      LOG.debug("Failed to add metrics ", e);
+      return false;
     }
   }
 }
