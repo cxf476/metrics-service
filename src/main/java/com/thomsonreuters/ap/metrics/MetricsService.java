@@ -1,12 +1,10 @@
 package com.thomsonreuters.ap.metrics;
 
-import java.io.IOException;
-
 public class MetricsService {
   private MetricsService() {
   }
 
-  public static Metrics getMetrics() throws IOException {
+  public static Metrics getMetrics() {
     return new SocketMetrics(SocketMetrics.DEFAULT_HOST, SocketMetrics.DEFAULT_PORT);
   }
   
@@ -15,9 +13,8 @@ public class MetricsService {
    * @param host
    * @param port
    * @return
-   * @throws IOException
    */
-  public static Metrics getMetrics(String host, int port) throws IOException {
+  public static Metrics getMetrics(String host, int port) {
     return new SocketMetrics(host, port);
   }
 }
