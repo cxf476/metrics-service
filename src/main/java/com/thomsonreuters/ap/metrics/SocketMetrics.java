@@ -14,7 +14,7 @@ import org.slf4j.LoggerFactory;
  *
  */
 public class SocketMetrics implements Metrics {
-  public static final String DEFAULT_HOST = "34.253.184.109";
+  public static final String DEFAULT_HOST = "34.196.109.99";
   public static final int DEFAULT_PORT = 2003;
   public static final int TIMEOUT = 2000;//ms
   
