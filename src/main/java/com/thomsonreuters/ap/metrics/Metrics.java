@@ -9,4 +9,11 @@ public interface Metrics {
    * @return false if got any exception
    */
   boolean add(String metricPath, String metricsValue, long seconds) ;
+  
+  /**
+   * @param metricPath eg: tr.analytics-predictive.arm
+   * @param metricsValue eg: 18
+   * @return false if got any exception
+   */
+  boolean add(String metricPath, String metricsValue) ;
 }

@@ -42,4 +42,9 @@ public class SocketMetrics implements Metrics {
       return false;
     }
   }
+
+  @Override
+  public boolean add(String metricPath, String metricsValue) {
+    return add(metricPath, metricsValue, System.currentTimeMillis()/1000);
+  }
 }
