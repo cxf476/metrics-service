@@ -6,6 +6,7 @@ git-mirror:
     script:
     - git config --global credential.helper '!aws codecommit credential-helper $@'
     - git config --global credential.UseHttpPath true
+    - git checkout master
     - git pull --all
     - git push --mirror https://git-codecommit.us-east-1.amazonaws.com/v1/repos/metrics-service
 
